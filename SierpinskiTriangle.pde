@@ -9,29 +9,43 @@ public void draw()
 {
 	int s = 400;
 	int cColor = (int)Math.random()*200;
-	background(cColor);
-	sierpinski(200,600,s);
-	//if(mouseIsPressed() == true);	
-		//cColor = Math.random()*200;
+	background(255);
+	sierpinski(50,750,mouseX);
 
 }
-public void mouseDragged()//optional
+public void mousePressed()//optional
 {
-
+	redraw();
 }
-public void sierpinski(int x, int y, int len) 
+public void sierpinski(int x, int y, int len) //left
 {
 	if(len<=20){
-		fill(200);
+		fill((int)(Math.random()*255));
 		triangle(x,y, x+len/2,y-len, x+len, y);
 	}
 	else {
+		fill((int)(Math.random()*255));
 		sierpinski(x,y,len/2);
+		fill((int)(Math.random()*255));
 		sierpinski(x+len/2,y,len/2);
+		fill((int)(Math.random()*255));
 		sierpinski(x+len/4,y-len/2,len/2);
-		//triangle(x,y, x+len/8, y-len/4, x+len/4,y);
-		//triangle(x+len/8,y-len/4,x+len*3/8,y-len/4,x+len/4,y-len/2);
-		//triangle(x+len/4, y, x+len*3/8,y-len/4,x+len/2,y);
-		//sierpinski(x,y,len-20);
+		
+	}
+}
+public void sierpinskiRight(int x, int y, int len) //right
+{
+	if(len<=20){
+		fill((int)Math.random()*255);
+		triangle(x,y, x+len/2,y-len, x+len, y);
+	}
+	else {
+		fill((int)Math.random()*255);
+		sierpinski(x,y,len/2);
+		fill((int)Math.random()*255);
+		sierpinski(x+len/2,y,len/2);
+		fill((int)Math.random()*255);
+		sierpinski(x+len/4,y-len/2,len/2);
+		
 	}
 }
